@@ -4,11 +4,9 @@ import os
 
 db_connection_string = os.environ['DB_CONNECTION_STRING']
 
-
-
 engine = create_engine(db_connection_string, connect_args={
                           "ssl": {
-                              "ca": "/home/runner/workspace/ca.pem",
+                              "ca": "/home/runner/work/career-website/ca.pem",
                           }
                       },)
 
