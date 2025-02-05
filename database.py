@@ -2,11 +2,13 @@ import sqlalchemy
 from sqlalchemy import create_engine, text
 import os
 
+ca_cert_path = os.path.join(os.getcwd(), "ca.pem")  # Dynamically get the path
+
 db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 engine = create_engine(db_connection_string, connect_args={
                           "ssl": {
-                              "ca": "/home/runner/work/career-website/ca.pem",
+                              "ca": ca_cert_path,
                           }
                       },)
 
