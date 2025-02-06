@@ -25,10 +25,12 @@ def apply_to_job(id):
   data = request.form
   job = load_job_from_db(id)
   add_application_to_db(id, data)
-  # Store this in db 
-  # Send an email to the applicant
-  # Display an acknowledgement
   return render_template('application_submitted.html', application = data, job = job)
+
+@app.route("/api/jobs/<id>")
+def show_job_json(id):
+  jobs = load_job_from_db(id)
+  return jsonify(jobs)
 
 if __name__ == "__main__":
   app.run(host = '0.0.0.0', port = 3000, debug = True)
