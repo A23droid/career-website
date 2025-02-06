@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{job.title}}Job Careers</title>
+    <title>{{job.title}} Job Careers</title>
      {% include 'bootstrap.html' %}
   </head>
   <body>
@@ -14,7 +14,7 @@
         
         <h4>Responsibilities</h4>
         <ul>
-          {% for line in job.responsibilities.split(".") %}
+          {% for line in job.responsibilities.split("\\n") %}
           {% if line %}
           <li>{{line}}</li>
           {% endif %}
@@ -22,7 +22,7 @@
         </ul>
         <h4>Requirements</h4>
       <ol>
-        {% for line in job.requirements.split(".") %}
+        {% for line in job.requirements.split("\\n") %}
         {% if line %}
         <li>{{line}}</li>
         {% endif %}
@@ -30,6 +30,7 @@
       </ol>
       <h4>Salary</h4>
       <p>{{job.currency}} {{job.salary}}</p>
+      {% include 'application_form.html' %}
     </div>  
     {% include 'footer.html' %}
   </body>
